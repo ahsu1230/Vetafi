@@ -1,7 +1,7 @@
 # Setting up the web application
 
-Clone this git repository
-In the same directory (should be root directory) as _package.json_, run in the command line:
+Clone this git repository.
+In the same directory as _package.json_, run in the command line:
 
 ```
 $ npm install
@@ -15,11 +15,11 @@ $ gulp
 ```
 
 This will pre-compile and create all the necessary files for the application and place them into the _build/_ directory
-From there, _browserSync_ will host a local webserver to automatically display the web app.
+From there, _BrowserSync_ will host a local webserver to automatically display the web app.
 
 
 # Directory Hierarchy
 
 
-# What is gulp doing?
+# What is _gulp_ doing?
 
