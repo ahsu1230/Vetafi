@@ -1,0 +1,5 @@
+.home-view(ng-controller="homeCtrl")
+    h1 What can the VA do for you?
+    ul
+        li.home-link-wrapper(ng-repeat="link in links")
+            a.home-link(href="{{link.url}}", target="_self") {{link.title}}

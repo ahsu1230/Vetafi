@@ -1,0 +1,107 @@
+// US Gov Color Palette Standards ---> https://standards.usa.gov/visual-style/#palette
+colorPrimaryBlue = #0071bc
+colorWhite = #ffffff
+colorBlack = #212121
+colorWarmLightGray = #e4e2e0
+colorWarmDarkGray = #494440
+colorLightBlue = #02bfe7
+colorRed = #e31c3d
+
+headerHeightPx = 60px
+
+@font-face
+	font-family Merriweather
+	src url('../fonts/Merriweather/Merriweather-Black.ttf');
+
+@font-face
+	font-family SourceSansPro
+	src url('../fonts/SourceSansPro/SourceSansPro-Black.ttf');
+
+//
+// US Gov Typography Standards ---> https://standards.usa.gov/visual-style/#pairings
+//
+.vfi-heading-style
+	font-family: Merriweather
+	font-weight: 700
+	font-size: 30px
+	line-height: 39px
+
+	&.vfi-big
+		font-size: 40px
+		line-height: 52px
+	&.vfi-small
+		font-size: 20px
+		line-height: 26px
+
+.vfi-body-style
+	font-family: SourceSansPro
+	font-weight: 400
+	font-size: 17px
+	line-height: 26px
+
+	&.vfi-big
+		font-size: 20px
+		line-height: 34px
+
+//
+// Body CSS
+//		
+body
+	margin: 0
+	background-color: colorWarmLightGray
+
+	& a
+		color: colorRed
+		text-decoration: none
+
+		&:hover
+			text-decoration: underline
+
+	& button
+		background-color: colorLightBlue
+
+		&:hover
+			background-color: filter(110%)
+
+.vfi-main-view-wrapper
+	width: 80%
+	max-width: 800px
+	height: 400px
+	margin: headerHeightPx auto
+	border: 2px solid colorWarmDarkGray
+	background-color: colorWhite
+
+//
+// Header CSS
+//
+.vfi-header
+	width: 100%
+	height: headerHeightPx
+	background-color: colorPrimaryBlue
+
+.vfi-header-content
+	width: 80%
+	height: 100%
+	margin: 0 auto
+	max-width: 800px
+
+.vfi-header-logo
+	float: left
+	height: 100%
+	line-height: headerHeightPx
+	font-size: 40px
+	letter-spacing: 2px
+	color: colorWhite
+
+	&:hover
+		text-decoration: none
+
+.vfi-header-menu
+	position: relative
+	top: 10px
+	float: right
+	width: 40px
+	height: 40px
+	background-color: colorBlack
+
+

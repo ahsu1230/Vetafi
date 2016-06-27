@@ -1,1 +1,16 @@
-h1 Hello!
+doctype html
+html(lang="en")
+
+	head
+		title= Vetafi
+		link(rel='stylesheet', href='css/main.css')
+		script(type='text/javascript', src='libs/libs.js')
+		script(type='text/javascript', src='js/main.js')
+
+	body(ng-app="vetafiApp")
+		.vfi-header
+			.vfi-header-content(ng-controller="HeaderCtrl")
+				a.vfi-header-logo.vfi-heading-style(href="/") Vetafi
+				.vfi-header-menu
+
+		.vfi-main-view-wrapper(ng-view)

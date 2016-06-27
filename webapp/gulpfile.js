@@ -24,7 +24,7 @@ gulp.task('stylus', function() {
     .pipe(stylus({
         'include css': true
     }))
-    .pipe(concat('out.css'))
+    .pipe(concat('main.css'))
     .pipe(gulp.dest('build/css'))
     .pipe(browserSync.reload({
       stream:true
