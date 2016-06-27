@@ -1,0 +1,87 @@
+@font-face {
+  font-family: Merriweather;
+  src: url("../fonts/Merriweather/Merriweather-Black.ttf");
+}
+@font-face {
+  font-family: SourceSansPro;
+  src: url("../fonts/SourceSansPro/SourceSansPro-Black.ttf");
+}
+.vfi-heading-style {
+  font-family: Merriweather;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+}
+.vfi-heading-style.vfi-big {
+  font-size: 40px;
+  line-height: 52px;
+}
+.vfi-heading-style.vfi-small {
+  font-size: 20px;
+  line-height: 26px;
+}
+.vfi-body-style {
+  font-family: SourceSansPro;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+}
+.vfi-body-style.vfi-big {
+  font-size: 20px;
+  line-height: 34px;
+}
+body {
+  margin: 0;
+  background-color: #e4e2e0;
+}
+body a {
+  color: #e31c3d;
+  text-decoration: none;
+}
+body a:hover {
+  text-decoration: underline;
+}
+body button {
+  background-color: #02bfe7;
+}
+body button:hover {
+  background-color: filter(110%);
+}
+.vfi-main-view-wrapper {
+  width: 80%;
+  max-width: 800px;
+  height: 400px;
+  margin: 60px auto;
+  border: 2px solid #494440;
+  background-color: #fff;
+}
+.vfi-header {
+  width: 100%;
+  height: 60px;
+  background-color: #0071bc;
+}
+.vfi-header-content {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.vfi-header-logo {
+  float: left;
+  height: 100%;
+  line-height: 60px;
+  font-size: 40px;
+  letter-spacing: 2px;
+  color: #fff;
+}
+.vfi-header-logo:hover {
+  text-decoration: none;
+}
+.vfi-header-menu {
+  position: relative;
+  top: 10px;
+  float: right;
+  width: 40px;
+  height: 40px;
+  background-color: #212121;
+}
