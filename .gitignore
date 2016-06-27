@@ -1,3 +1,2 @@
-webapp/build/
-webapp/node_modules/
-servers/shoebox/node_modules
+shoebox/node_modules
+shoebox/webapp/node_modules
