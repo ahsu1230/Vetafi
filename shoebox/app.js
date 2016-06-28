@@ -1,4 +1,3 @@
-'use strict';
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
@@ -16,7 +15,7 @@ function loadIntoBuild (app, targetDir) {
 }
 loadIntoBuild(app, 'middlewares');
 loadIntoBuild(app, 'controllers');
-loadIntoBuild(app, 'commanders');
+loadIntoBuild(app, 'services');
 
 // Serve static files
 app.use(express.static(path.join(__dirname, '/webapp/build')));
