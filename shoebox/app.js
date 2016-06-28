@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
@@ -22,6 +23,9 @@ app.use(express.static(path.join(__dirname, '/webapp/build')));
 app.get('/', function(req, resp) {
   resp.render('webapp/build/index.html');
 });
+
+// Connect to a mongodb server using mongoose
+require('./config/mongoose')(environment);
 
 var port = 3999;
 app.listen(process.env.PORT || port);
