@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('vetafiApp');
-app.controller("HeaderCtrl", ['$scope', function ($scope) {
+app.controller("headerCtrl", ['$scope', function ($scope) {
 	$scope.links = [
 		{
 			title: 'Health Resources',

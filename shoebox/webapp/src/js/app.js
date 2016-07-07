@@ -19,6 +19,8 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: "templates/signin.html"
     }).when("/login", {
         templateUrl: "templates/signin.html"
+    }).when("/profile", {
+        templateUrl: "templates/profile.html"
     }).when("/page-not-found", {
         templateUrl: "templates/pageNotFound.html"
     }).otherwise({

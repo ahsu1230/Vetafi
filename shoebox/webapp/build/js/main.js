@@ -19,6 +19,8 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: "templates/signin.html"
     }).when("/login", {
         templateUrl: "templates/signin.html"
+    }).when("/profile", {
+        templateUrl: "templates/profile.html"
     }).when("/page-not-found", {
         templateUrl: "templates/pageNotFound.html"
     }).otherwise({
@@ -28,13 +30,12 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 var app = angular.module('vetafiApp');
 app.controller('faqCtrl', ['$scope', function($scope) {
-    
-}]);
 
+}]);
 
 'use strict';
 var app = angular.module('vetafiApp');
-app.controller("HeaderCtrl", ['$scope', function ($scope) {
+app.controller("headerCtrl", ['$scope', function ($scope) {
 	$scope.links = [
 		{
 			title: 'Health Resources',
@@ -50,6 +51,7 @@ app.controller("HeaderCtrl", ['$scope', function ($scope) {
 		}
 	];
 }]);
+
 var app = angular.module('vetafiApp');
 app.controller('homeCtrl', ['$scope', function($scope) {
   $scope.links = [
@@ -68,6 +70,10 @@ app.controller('homeCtrl', ['$scope', function($scope) {
   ];
 }]);
 
+var app = angular.module('vetafiApp');
+app.controller('profileCtrl', ['$scope', function($scope) {
+
+}]);
 
 'use strict';
 var app = angular.module('vetafiApp');
@@ -84,7 +90,7 @@ app.factory('profileService', function() {
 
 'use strict';
 var app = angular.module('vetafiApp');
-app.controller("SignInCtrl", ['$scope', '$location', 'profileService',
+app.controller("signInCtrl", ['$scope', '$location', 'profileService',
   function ($scope, $location, profileService) {
 
   $scope.isLoggedIn = profileService.isLoggedIn();

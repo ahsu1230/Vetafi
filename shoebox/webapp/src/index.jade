@@ -7,9 +7,9 @@ html(lang="en")
 		script(type='text/javascript', src='libs/libs.js')
 		script(type='text/javascript', src='js/main.js')
 
-	body(ng-app="vetafiApp")
+	body(ng-app="vetafiApp").vfi-body-style
 		.vfi-header
-			.vfi-header-content(ng-controller="HeaderCtrl")
+			.vfi-header-content(ng-controller="headerCtrl")
 				a.vfi-heading-style.vfi-header-logo(href="/") Vetafi
 				.vfi-header-menu
 

@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('vetafiApp');
-app.controller("SignInCtrl", ['$scope', '$location', 'profileService',
+app.controller("signInCtrl", ['$scope', '$location', 'profileService',
   function ($scope, $location, profileService) {
 
   $scope.isLoggedIn = profileService.isLoggedIn();
