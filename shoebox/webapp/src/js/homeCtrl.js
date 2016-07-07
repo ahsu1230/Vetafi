@@ -3,7 +3,7 @@ app.controller('homeCtrl', ['$scope', function($scope) {
   $scope.links = [
     {
         title:'View Health Resources',
-        url:'#/faq'
+        url:'faq'
     },
     {
         title:'File a Health Claim',

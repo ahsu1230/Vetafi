@@ -10,7 +10,7 @@ var app = angular.module('vetafiApp', [
 /**
  * Configure routes
  */
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when("/", {
         templateUrl: "templates/home.html"
     }).when("/faq", {
@@ -26,7 +26,10 @@ app.config(['$routeProvider', function ($routeProvider) {
     }).otherwise({
         redirectTo: '/'
     });
-}]);
+
+    // use HTML5 History API (also removes '#' in url)
+    $locationProvider.html5Mode(true);
+});
 
 var app = angular.module('vetafiApp');
 app.controller('faqCtrl', ['$scope', function($scope) {
@@ -57,7 +60,7 @@ app.controller('homeCtrl', ['$scope', function($scope) {
   $scope.links = [
     {
         title:'View Health Resources',
-        url:'#/faq'
+        url:'faq'
     },
     {
         title:'File a Health Claim',
