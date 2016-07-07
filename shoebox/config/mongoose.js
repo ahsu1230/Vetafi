@@ -14,7 +14,7 @@ module.exports = function(environment) {
   db.on('open', function () {
       console.log('Database connection opened at ' + address);
   });
-  db.on('disconnected', function(err){
+  db.on('disconnected', function (err) {
       console.log('Database disconnected.');
   });
 };

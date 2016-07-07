@@ -1,0 +1,97 @@
+@import "colors.styl"
+@import "spacing.styl"
+@import "media-screens.styl"
+
+.fb-icon
+  width: 16px
+  margin-right: 12px
+  vertical-align: top
+
+.vfi-fb-btn
+  background-color: colorFacebook
+
+.vfi-signin-divisor
+  height: 24px
+  line-height: 24px
+  margin: largeSpacing 0px
+  font-size: 18px
+  color: colorLightGray
+
+.vfi-border-div
+  position: relative
+  top: -4px
+  display: inline-block
+  width: calc(50% - 72px)
+  border-bottom: 1px solid colorLightGray
+
+  &:first-child
+    margin-right: 36px
+  &:last-child
+    margin-left: 36px
+
+.vfi-signin-title
+  width: 100%
+  max-width: 100%
+  margin: 0 auto
+
+  @media screen and (max-width: tabletWidth)
+    max-width: 200px
+
+  @media screen and (max-width: mobileWidth)
+    max-width: 200px
+
+  & h3
+    line-height: 32px !important
+
+.vfi-signin-view
+.vfi-login-view
+  text-align: center
+
+  .vfi-submit-btn
+    position: relative
+    width: 360px
+    height: 42px
+    background-color: colorPrimaryBlue
+    overflow: hidden
+
+    @media screen and (max-width: tabletWidth)
+      width: 240px
+
+    @media screen and (max-width: mobileWidth)
+      width: 240px
+
+    & .vfi-progress
+      position: absolute
+      top: 0px
+      left: 0px
+      width: 0%
+      height: 100%
+      background-color: colorPrimaryDarkBlue
+    & .vfi-txt
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
+
+  & input
+    display: block
+    height: 36px
+    width: 360px
+    margin: 0 auto 12px
+    padding: 8px 16px
+    box-sizing: border-box
+    border: 1px solid colorLightGray
+    border-radius: 6px
+    outline: none
+
+    &:active
+    &:focus
+      box-shadow: 0px 0px 1px 1px colorLightBlue
+      border: 1px solid colorLightBlue
+
+    @media screen and (max-width: tabletWidth)
+      width: 240px
+
+    @media screen and (max-width: mobileWidth)
+      width: 240px

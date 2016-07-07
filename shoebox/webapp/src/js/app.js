@@ -15,10 +15,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: "templates/home.html"
     }).when("/faq", {
         templateUrl: "templates/faq.html"
-    }).when("/signin", {
+    }).when("/signup", {
         templateUrl: "templates/signin.html"
     }).when("/login", {
-        templateUrl: "templates/login.html"
+        templateUrl: "templates/signin.html"
     }).when("/page-not-found", {
         templateUrl: "templates/pageNotFound.html"
     }).otherwise({

@@ -8,13 +8,14 @@ $ npm install
 ```
 
 ### Have a MongoDb instance running
-Refer to the [MongoDb installation page](https://docs.mongodb.com/master/installation/) to install. We used Homebrew to install Mongo.
+Refer to the [MongoDb installation page](https://docs.mongodb.com/master/installation/) to install.
+We used Homebrew to install Mongo.
 ```
 $ brew install mongodb
 ```
 
 ## Running Shoebox locally
-Make sure a mongodb is setup, we assume the database is on port 27017.
+Make sure a mongodb is started in a separate terminal, we assume the database is on port 27017.
 ```
 $ mongod
 ```
@@ -26,10 +27,10 @@ $ ./start.sh
 
 ## Codebase Organization
 The codebase directories are organized as such:
-- builders		utilities used to build the web server and get it running
-- config		configuration utilities to help bind together third-party services
+- config		    configuration utilities to help bind together third-party services
 - controllers		endpoint logic for requests
-- commanders		app logic to manipulate databases
-- domain		database access objects that represent db tables
+- services		  app logic to manipulate databases
+- models		    database access objects that represent db tables
 - middlewares		utilities to help process requests before hitting the controllers
-
+- tests         unit tests
+- utils         general programming utilities and constants

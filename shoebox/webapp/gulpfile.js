@@ -87,8 +87,10 @@ gulp.task('watch', function () {
   gulp.watch('src/**/*.jade', ['jade']);
 });
 
-gulp.task('default', function() {
-    runSequence('clean', ['fonts', 'icons'], 'libs', 'js', 'jade', 'stylus', 'initBrowserSync', 'watch');
+gulp.task('build', function() {
+	runSequence('clean', ['fonts', 'icons'], 'libs', 'js', 'jade', 'stylus');
 });
 
-
+gulp.task('default', function() {
+    runSequence('clean', 'build', 'initBrowserSync', 'watch');
+});

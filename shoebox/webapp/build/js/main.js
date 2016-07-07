@@ -15,16 +15,17 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: "templates/home.html"
     }).when("/faq", {
         templateUrl: "templates/faq.html"
-    }).when("/signin", {
+    }).when("/signup", {
         templateUrl: "templates/signin.html"
     }).when("/login", {
-        templateUrl: "templates/login.html"
+        templateUrl: "templates/signin.html"
     }).when("/page-not-found", {
         templateUrl: "templates/pageNotFound.html"
     }).otherwise({
         redirectTo: '/'
     });
 }]);
+
 var app = angular.module('vetafiApp');
 app.controller('faqCtrl', ['$scope', function($scope) {
     
@@ -67,3 +68,36 @@ app.controller('homeCtrl', ['$scope', function($scope) {
   ];
 }]);
 
+
+'use strict';
+var app = angular.module('vetafiApp');
+app.factory('profileService', function() {
+  return {
+    isLoggedIn: function() {
+      return false;
+    },
+    getUserInfo: function() {
+      return {};
+    }
+  };
+});
+
+'use strict';
+var app = angular.module('vetafiApp');
+app.controller("SignInCtrl", ['$scope', '$location', 'profileService',
+  function ($scope, $location, profileService) {
+
+  $scope.isLoggedIn = profileService.isLoggedIn();
+  $scope.atSignupPage = $location.path() == '/signup';
+  $scope.atLoginPage = $location.path() == '/login';
+  console.log('path: ' + $location.path());
+
+  $scope.onClickSubmit = function($event) {
+    var progressBar = $($event.currentTarget).find('.vfi-progress');
+    if (!_.isEmpty(progressBar)) {
+      progressBar.animate({width: '60%'}, 700, function() {
+        progressBar.animate({width: '100%'}, 300);
+      });
+    }
+  };
+}]);

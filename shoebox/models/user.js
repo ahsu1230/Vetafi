@@ -1,6 +1,7 @@
 'use strict';
 var uuid = require('uuid');
 var mongoose = require('mongoose');
+var SocialUser = require('./socialUser');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
@@ -14,6 +15,10 @@ var userSchema = new Schema({
   updatedAt: Date,       // Date of last row modification
   state: Number,                                    // User.State
   stateUpdatedAt: Date,  // Date of last state modification
+  socialUsers:[{
+      type: Schema.Types.ObjectId,
+      ref: 'SocialUser'
+  }],
   admin: Boolean,                                   // Is user an admin?
   test: Boolean                                     // Is user a test account?
 });
