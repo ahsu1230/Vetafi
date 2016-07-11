@@ -1,0 +1,130 @@
+@import "standards.styl"
+
+.vfi-profile-view
+  background-color: white
+
+.vfi-profile-container
+  width: maxLayoutWidthPct
+  max-width: maxLayoutWidthPx
+  margin: 0 auto
+
+//
+// Profile My Information section
+//
+.vfi-profile-column
+  display: inline-block
+  position: relative
+  box-sizing: border-box
+  vertical-align: top
+
+  &.vfi-pic
+    width: 240px
+    margin-right: megaSpacing
+
+  &.vfi-info
+    width: calc(100% - 300px)
+
+.vfi-profile-pic-wrapper
+  position: relative
+
+  &:hover
+    & .vfi-change-pic-btn
+      height: 40px
+
+  & .vfi-change-pic-btn
+    position: absolute
+    top: 0px
+    left: 0px
+    height: 0px
+    width: 100%
+    padding: 0px 8px
+    box-sizing: border-box
+    background-color: rgba(55, 55, 55, 0.8)
+    color: colorWhite
+    transition: height 0.1s linear
+    cursor: pointer
+    overflow: hidden
+
+    & .vfi-camera-icon
+      display: inline-block
+      width: 24px
+      height: 24px
+      margin-right: smallSpacing
+      vertical-align: middle
+      background: url('../icons/camera.svg');
+
+.vfi-profile-pic
+  width: 100%
+  height: 300px
+  box-sizing: border-box
+  background-color: colorWarmLightGray
+  border: 2px solid colorWarmDarkGray
+
+  &.vfi-default
+    padding: mediumSpacing
+
+.vfi-name
+  text-align: center
+
+.vfi-edit-btn
+    position: absolute
+    top: 0px
+    right: 0px
+
+    & .vfi-edit-icon
+      display: inline-block
+      width: 18px
+      height: 18px
+      margin-right: 8px
+      vertical-align: middle
+      background: url('../icons/edit-white.svg')
+      background-size: cover
+
+.vfi-profile-section
+  width: 100%
+  padding-top: megaSpacing
+  padding-bottom: megaSpacing
+  border-top: 1px solid colorWarmLightGray
+
+  &.claims
+    text-align: left
+  &.options
+    text-align: left
+
+  & .vfi-section-header
+    display: inline-block
+    margin-bottom: largeSpacing
+    font-family: Merriweather
+    font-size: heading1_small_size
+    line-height: heading1_small_lineHeight
+    letter-spacing: heading1_letterSpacing
+
+  & .vfi-section-content
+    display: block
+
+    & .vfi-content
+      margin-bottom: mediumSpacing
+
+      &:last-child
+        margin-bottom: 0
+
+
+//
+// Profile File Claims section
+//
+
+//
+// Profile Options section
+//
+.vfi-profile-section.options
+  & .vfi-section-content
+    height: megaSpacing
+    margin: mediumSpacing 0
+
+  & .vfi-option-btn
+    float: right
+    &.logout
+      background-color: colorDarkGray
+
+    &.delete-account
+      background-color: colorRed

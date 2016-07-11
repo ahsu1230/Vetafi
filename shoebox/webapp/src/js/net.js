@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('vetafiApp');
-app.factory('net', ['$http', function(http) {
+app.factory('net', ['$http', function($http) {
   var baseUrl = "http://localhost:3999";
 
   var get = function (url, data) {
@@ -11,10 +11,11 @@ app.factory('net', ['$http', function(http) {
     });
   };
 
-  var post = function() {
+  var post = function(url, data) {
     return $http({
       url: baseUrl + url,
       method: "POST",
+      data: data || {},
       headers: { 'Content-Type': 'application/json' }
     });
   };
@@ -25,13 +26,13 @@ app.factory('net', ['$http', function(http) {
         email: email,
         password: password
       };
-      return post("/login", data);
+      return post("/auth/login", data);
     },
     logout: function() {
-      return get("/logout");
+      return get("/auth/logout");
     },
     signup: function(userData) {
-      return post("/signup", userData);
+      return post("/auth/signup", userData);
     }
   };
 }]);

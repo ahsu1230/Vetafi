@@ -7,6 +7,19 @@ var User = require('./../models/user');
 var UserService = require('./../services/userService');
 
 module.exports = function (app) {
+  app.get('/signin', function(req, res) {
+    // is there a session?
+    // if yes, redirect to '/'
+    // otherwise, redirect '/signin.html'
+  });
+
+  app.get('/login', function(req, res) {
+    // is there a session?
+    // if yes, redirect to '/'
+    // otherwise, redirect '/login.html'
+  });
+
+
   app.post('/auth/signup', function(req, res) {
     console.log('[authSignUp] request received for ' + JSON.stringify(req.body));
     var user = {
@@ -32,11 +45,13 @@ module.exports = function (app) {
 
   app.post('/auth/login', passport.authenticate('local'), function(req, res) {
     console.log('[authLogIn] request received for ' + JSON.stringify(req.body));
-    console.log('[authLogIn] request session: ' + JSON.stringify(req.session));
-    console.log('[authLogIn] request user: ' + JSON.stringify(req.user));
-    req.session.key = req.body.email;
-    console.log('[authLogIn] session key saved for ' + req.body.email);
-    res.end('done');
+    if (req.user) {
+      req.session.key = req.body.email;
+      var extUser = User.externalize(req.user);
+      res.status(200).send({user: extUser, redirect: '/'});
+    } else {
+      res.status(403);
+    }
   });
 
   app.get('/auth/logout', function(req, res) {

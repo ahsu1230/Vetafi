@@ -3,39 +3,32 @@
 //
 @font-face
 	font-family Merriweather
-	src url('../fonts/Merriweather/Merriweather-Black.ttf');
+	src url('../fonts/Merriweather/Merriweather-Regular.ttf');
 
 @font-face
 	font-family SourceSansPro
-	src url('../fonts/SourceSansPro/SourceSansPro-Black.ttf');
+	src url('../fonts/SourceSansPro/SourceSansPro-Regular.ttf');
 
-.vfi-heading-style
-	font-family: Merriweather
-	font-weight: 700
-	font-size: 30px
-	line-height: 39px
-	letter-spacing: 1.5px
+heading1_weight = 700
+heading1_size = 30px
+heading1_lineHeight = 39px
+heading1_letterSpacing = 1.5px
 
-	&.vfi-big
-		font-size: 40px
-		line-height: 52px
-		letter-spacing: 2px
+heading1_big_size = 40px
+heading1_big_lineHeight = 52px
+heading1_big_letterSpacing = 2px
 
-	&.vfi-small
-		font-size: 20px
-		line-height: 26px
-		letter-spacing: 1px
+heading1_small_size = 20px
+heading1_small_lineHeight = 26px
+heading1_small_letterSpacing = 1px
 
-.vfi-body-style
-	font-family: SourceSansPro
-	font-weight: 400
-	font-size: 17px
-	line-height: 26px
-	letter-spacing: 1px
+bodyFont_weight = 400
+bodyFont_size = 17px
+bodyFont_lineHeight = 26px
+bodyFont_letterSpacing = 1px
 
-	&.vfi-big
-		font-size: 20px
-		line-height: 34px
+bodyFont_big_size = 20px
+bodyFont_big_lineHeight = 34px
 
 
 //
@@ -48,8 +41,13 @@ colorBlack = #212121
 colorLightGray = #aeb0b5
 colorWarmLightGray = #e4e2e0
 colorWarmDarkGray = #494440
+colorDarkGray = #323a45
 colorLightBlue = #02bfe7
 colorRed = #e31c3d
+colorYellow = #fdb81e
+colorPurple = #4c2c92
+colorFocusBlue = #3e94cf
+colorGreen = #2e8540
 colorFacebook = #3b5998
 
 
@@ -66,5 +64,12 @@ megaSpacing = 60px
 //
 // Screen Widths
 //
-mobileWidth = 480px
-tabletWidth = 640px
+mobileWidth = 480px // optional
+tabletWidth = 640px // required
+
+//
+// Misc.
+//
+maxLayoutWidthPx = 720px
+maxLayoutWidthPct = 80%
+headerHeightPx = 60px

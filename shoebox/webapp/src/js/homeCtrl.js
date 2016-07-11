@@ -1,17 +1,16 @@
 var app = angular.module('vetafiApp');
-app.controller('homeCtrl', ['$scope', function($scope) {
-  $scope.links = [
-    {
-        title:'View Health Resources',
-        url:'faq'
-    },
-    {
-        title:'File a Health Claim',
-        url:'signin?action=file'
-    },
-    {
-        title:'View your Health Status',
-        url:'signin?action=profile'
-    }
-  ];
-}]);
+app.controller('homeCtrl', ['$scope', 'profileService',
+  function($scope, profileService) {
+    $scope.isLoggedIn = false;
+
+		$scope.$watch(function () {
+			return profileService.userInfo;
+		}, function (newVal) {
+			if (_.isEmpty(newVal)) {
+				$scope.isLoggedIn = false;
+			} else {
+				$scope.isLoggedIn = true;
+			}
+		});
+  }
+]);

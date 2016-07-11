@@ -7,12 +7,20 @@ html(lang="en")
 		link(rel='stylesheet', href='css/main.css')
 		script(type='text/javascript', src='libs/libs.js')
 		script(type='text/javascript', src='js/main.js')
-		base(href='/')
 
 	body(ng-app="vetafiApp").vfi-body-style
 		.vfi-header
 			.vfi-header-content(ng-controller="headerCtrl")
-				a.vfi-heading-style.vfi-header-logo(href="/") Vetafi
-				.vfi-header-menu
+				a.vfi-header-logo(href="/") Vetafi
+				.vfi-header-links
+					a(href='#/signup' ng-if='!isLoggedIn')
+						| Sign Up
+						.vfi-underline-border
+					a(href='#/login' ng-if='!isLoggedIn')
+						| Log In
+						.vfi-underline-border
+					a(href='#/profile' ng-if='isLoggedIn')
+						| My Profile
+						.vfi-underline-border
 
 		.vfi-main-view-wrapper(ng-view)

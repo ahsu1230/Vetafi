@@ -5,11 +5,11 @@ function AuthService (app) {
 };
 
 module.exports = AuthService;
-module.exports.isPasswordCorrect = function (expectedPwd, candidatePwd, callback) {
+module.exports.isPasswordCorrect = function (expectedPwd, candidatePwd) {
   console.log('[AuthService] compare passwords: ' + expectedPwd + ' vs. ' + candidatePwd);
   if (_.isEqual(expectedPwd, candidatePwd)) {
-    callback(null, true);
+    return true;
   } else {
-    callback('Passwords do not match');
+    return false;
   }
 };

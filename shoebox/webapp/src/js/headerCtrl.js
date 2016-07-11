@@ -1,18 +1,17 @@
 'use strict';
 var app = angular.module('vetafiApp');
-app.controller("headerCtrl", ['$scope', function ($scope) {
-	$scope.links = [
-		{
-			title: 'Health Resources',
-			href: '/#/faq'
-		},
-		{
-			title: 'Profile',
-			href: '/#/profile'
-		},
-		{
-			title: 'Sign in',
-			href: '/#/signin'
-		}
-	];
-}]);
+app.controller("headerCtrl", ['$scope', 'profileService',
+	function ($scope, profileService) {
+		$scope.isLoggedIn = false;
+
+		$scope.$watch(function () {
+			return profileService.userInfo;
+		}, function (newVal) {
+			if (_.isEmpty(newVal)) {
+				$scope.isLoggedIn = false;
+			} else {
+				$scope.isLoggedIn = true;
+			}
+		});
+	}
+]);

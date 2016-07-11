@@ -10,7 +10,6 @@ var userSchema = new Schema({
   lastname: String,                                 // Last name
   email: String,                                    // Email address
   password: String,                                 // Encrypted password
-  externalId: String,                               // External Unique Id for user (UUID)
   createdAt: Date,       // Date of row creation
   updatedAt: Date,       // Date of last row modification
   state: Number,                                    // User.State
@@ -32,6 +31,16 @@ var User = mongoose.model('User', userSchema);
 module.exports = User;
 module.exports.State = State;
 
+// Serializer / Deserializer
+module.exports.externalize = function(user) {
+  return {
+    firstname: user.firstname,
+    middlename: user.middlename,
+    lastname: user.lastname,
+    email: user.email
+  };
+};
+
 //
 // Inserts
 //
@@ -43,7 +52,6 @@ module.exports.quickCreate = function(user, callbacks) {
     lastname: user.lastname,
     email: user.email,
     password: user.password,
-    externalId: uuid.v4(),
     createdAt: now,
     updatedAt: now,
     state: User.State.ACTIVE,

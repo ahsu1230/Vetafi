@@ -1,42 +1,197 @@
 @font-face {
   font-family: Merriweather;
-  src: url("../fonts/Merriweather/Merriweather-Black.ttf");
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
 }
 @font-face {
   font-family: SourceSansPro;
-  src: url("../fonts/SourceSansPro/SourceSansPro-Black.ttf");
+  src: url("../fonts/SourceSansPro/SourceSansPro-Regular.ttf");
 }
-.vfi-heading-style {
+.vfi-header {
+  width: 100%;
+  height: 60px;
+  background-color: #205493;
+}
+.vfi-header-content {
+  width: 80%;
+  max-width: 720px;
+  height: 100%;
+  margin: 0 auto;
+}
+.vfi-header-logo {
+  float: left;
+  height: 100%;
+  line-height: 60px;
+  color: #fff;
   font-family: Merriweather;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 39px;
-  letter-spacing: 1.5px;
-}
-.vfi-heading-style.vfi-big {
   font-size: 40px;
-  line-height: 52px;
+  font-weight: 700;
   letter-spacing: 2px;
 }
-.vfi-heading-style.vfi-small {
+.vfi-header-logo:hover {
+  text-decoration: none;
+}
+.vfi-header-links {
+  line-height: 60px;
+}
+.vfi-header-links a {
+  position: relative;
+  float: right;
+  margin-left: 30px;
+  color: #fff;
+  font-family: Merriweather;
+}
+.vfi-header-links a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.vfi-header-links a:hover .vfi-underline-border {
+  opacity: 1;
+  visibility: visible;
+}
+.vfi-underline-border {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: all linear 0.1s;
+}
+
+@font-face {
+  font-family: Merriweather;
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
+}
+@font-face {
+  font-family: SourceSansPro;
+  src: url("../fonts/SourceSansPro/SourceSansPro-Regular.ttf");
+}
+.vfi-banner-wrapper {
+  position: relative;
+  width: 100%;
+}
+.vfi-banner-wrapper .vfi-banner-img {
+  width: 100%;
+  height: 300px;
+  background-image: url("../icons/banner-child.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.vfi-banner-wrapper .vfi-banner-overlay {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(25,25,25,0.8);
+}
+@media screen and (max-width: 720px) {
+  .vfi-banner-wrapper .vfi-banner-overlay {
+    height: 140px;
+    font-size: 18px;
+  }
+}
+.vfi-banner-wrapper .vfi-banner-overlay .vfi-banner-text-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 70px;
+  color: #fff;
+  font-family: Merriweather;
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 1.5px;
+}
+.vfi-banner-wrapper .vfi-banner-overlay .vfi-banner-action {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  background-color: #fdb81e;
+  color: #212121;
+}
+.vfi-banner-border {
+  position: absolute;
+  bottom: -6px;
+  height: 6px;
+  width: 100%;
+  background-color: #205493;
+}
+.vfi-home-option-link {
+  color: #fff;
+}
+.vfi-home-option-link:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.vfi-home-option-wrapper {
+  width: 80%;
+  max-width: 720px;
+  margin: 60px auto 0px;
+  box-sizing: border-box;
+  background-color: #205493;
+}
+.vfi-home-option-wrapper:hover {
+  filter: brightness(1.2);
+  -webkit-filter: brightness(1.2);
+  -moz-filter: brightness(1.2);
+  -ms-filter: brightness(1.2);
+}
+.vfi-home-option-wrapper:hover img {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+.vfi-home-option-wrapper a {
+  display: block;
+  padding: 30px 60px;
+}
+.vfi-home-option-wrapper .vfi-option-title {
+  font-family: Merriweather;
+  font-weight: 700;
   font-size: 20px;
   line-height: 26px;
   letter-spacing: 1px;
 }
-.vfi-body-style {
+.vfi-home-option-wrapper .vfi-option-text-wrapper {
+  display: inline-block;
+  width: calc(100% - 200px);
+}
+.vfi-home-option-wrapper img {
+  float: right;
+  width: 80px;
+  vertical-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.1s linear;
+}
+.vfi-home-footer-wrapper {
+  width: 100%;
+  height: 200px;
+  margin-top: 120px;
+  background-color: #323a45;
+}
+
+@font-face {
+  font-family: Merriweather;
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
+}
+@font-face {
+  font-family: SourceSansPro;
+  src: url("../fonts/SourceSansPro/SourceSansPro-Regular.ttf");
+}
+body {
+  margin: 0;
+  background-color: #e4e2e0;
   font-family: SourceSansPro;
   font-weight: 400;
   font-size: 17px;
   line-height: 26px;
   letter-spacing: 1px;
-}
-.vfi-body-style.vfi-big {
-  font-size: 20px;
-  line-height: 34px;
-}
-body {
-  margin: 0;
-  background-color: #e4e2e0;
 }
 body a {
   color: #e31c3d;
@@ -47,7 +202,6 @@ body a:hover {
 }
 body button {
   padding: 10px 20px;
-  border-radius: 6px;
   background-color: #205493;
   border: none;
   outline: none;
@@ -62,9 +216,9 @@ body button:hover {
   -ms-filter: brightness(1.2);
   cursor: pointer;
 }
-.vfi-main-view-wrapper {
+.vfi-single-view {
   width: 80%;
-  max-width: 800px;
+  max-width: 720px;
   margin: 60px auto;
   padding: 30px;
   box-sizing: border-box;
@@ -72,89 +226,155 @@ body button:hover {
   background-color: #fff;
 }
 @media screen and (max-width: 640px) {
-  .vfi-main-view-wrapper {
+  .vfi-single-view {
     width: 80%;
     margin: 30px auto;
     padding: 20px;
   }
 }
 @media screen and (max-width: 480px) {
-  .vfi-main-view-wrapper {
+  .vfi-single-view {
     width: 100%;
     border: none;
     margin: 15px 0;
     padding: 15px;
   }
 }
-.vfi-header {
-  width: 100%;
-  height: 60px;
-  background-color: #0071bc;
+
+@font-face {
+  font-family: Merriweather;
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
 }
-.vfi-header-content {
+@font-face {
+  font-family: SourceSansPro;
+  src: url("../fonts/SourceSansPro/SourceSansPro-Regular.ttf");
+}
+.vfi-profile-view {
+  background-color: #fff;
+}
+.vfi-profile-container {
   width: 80%;
-  height: 100%;
+  max-width: 720px;
   margin: 0 auto;
-  max-width: 800px;
 }
-.vfi-header-logo {
-  float: left;
-  height: 100%;
-  line-height: 60px !important;
-  font-size: 40px;
-  letter-spacing: 2px;
-  color: #fff;
-}
-.vfi-header-logo:hover {
-  text-decoration: none;
-}
-.vfi-header-menu {
+.vfi-profile-column {
+  display: inline-block;
   position: relative;
-  top: 10px;
-  float: right;
-  width: 40px;
-  height: 40px;
-  background-color: #212121;
+  box-sizing: border-box;
+  vertical-align: top;
 }
-.vfi-header-menu:hover {
+.vfi-profile-column.vfi-pic {
+  width: 240px;
+  margin-right: 60px;
+}
+.vfi-profile-column.vfi-info {
+  width: calc(100% - 300px);
+}
+.vfi-profile-pic-wrapper {
+  position: relative;
+}
+.vfi-profile-pic-wrapper:hover .vfi-change-pic-btn {
+  height: 40px;
+}
+.vfi-profile-pic-wrapper .vfi-change-pic-btn {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 0px;
+  width: 100%;
+  padding: 0px 8px;
+  box-sizing: border-box;
+  background-color: rgba(55,55,55,0.8);
+  color: #fff;
+  transition: height 0.1s linear;
   cursor: pointer;
+  overflow: hidden;
+}
+.vfi-profile-pic-wrapper .vfi-change-pic-btn .vfi-camera-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+  vertical-align: middle;
+  background: url("../icons/camera.svg");
+}
+.vfi-profile-pic {
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+  background-color: #e4e2e0;
+  border: 2px solid #494440;
+}
+.vfi-profile-pic.vfi-default {
+  padding: 20px;
+}
+.vfi-name {
+  text-align: center;
+}
+.vfi-edit-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.vfi-edit-btn .vfi-edit-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background: url("../icons/edit-white.svg");
+  background-size: cover;
+}
+.vfi-profile-section {
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-top: 1px solid #e4e2e0;
+}
+.vfi-profile-section.claims {
+  text-align: left;
+}
+.vfi-profile-section.options {
+  text-align: left;
+}
+.vfi-profile-section .vfi-section-header {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-family: Merriweather;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 1.5px;
+}
+.vfi-profile-section .vfi-section-content {
+  display: block;
+}
+.vfi-profile-section .vfi-section-content .vfi-content {
+  margin-bottom: 20px;
+}
+.vfi-profile-section .vfi-section-content .vfi-content:last-child {
+  margin-bottom: 0;
+}
+.vfi-profile-section.options .vfi-section-content {
+  height: 60px;
+  margin: 20px 0;
+}
+.vfi-profile-section.options .vfi-option-btn {
+  float: right;
+}
+.vfi-profile-section.options .vfi-option-btn.logout {
+  background-color: #323a45;
+}
+.vfi-profile-section.options .vfi-option-btn.delete-account {
+  background-color: #e31c3d;
 }
 
 @font-face {
   font-family: Merriweather;
-  src: url("../fonts/Merriweather/Merriweather-Black.ttf");
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
 }
 @font-face {
   font-family: SourceSansPro;
-  src: url("../fonts/SourceSansPro/SourceSansPro-Black.ttf");
-}
-.vfi-heading-style {
-  font-family: Merriweather;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 39px;
-  letter-spacing: 1.5px;
-}
-.vfi-heading-style.vfi-big {
-  font-size: 40px;
-  line-height: 52px;
-  letter-spacing: 2px;
-}
-.vfi-heading-style.vfi-small {
-  font-size: 20px;
-  line-height: 26px;
-  letter-spacing: 1px;
-}
-.vfi-body-style {
-  font-family: SourceSansPro;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 26px;
-  letter-spacing: 1px;
-}
-.vfi-body-style.vfi-big {
-  font-size: 20px;
-  line-height: 34px;
+  src: url("../fonts/SourceSansPro/SourceSansPro-Regular.ttf");
 }
 .fb-icon {
   width: 16px;
@@ -276,37 +496,9 @@ body button:hover {
 
 @font-face {
   font-family: Merriweather;
-  src: url("../fonts/Merriweather/Merriweather-Black.ttf");
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
 }
 @font-face {
   font-family: SourceSansPro;
-  src: url("../fonts/SourceSansPro/SourceSansPro-Black.ttf");
-}
-.vfi-heading-style {
-  font-family: Merriweather;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 39px;
-  letter-spacing: 1.5px;
-}
-.vfi-heading-style.vfi-big {
-  font-size: 40px;
-  line-height: 52px;
-  letter-spacing: 2px;
-}
-.vfi-heading-style.vfi-small {
-  font-size: 20px;
-  line-height: 26px;
-  letter-spacing: 1px;
-}
-.vfi-body-style {
-  font-family: SourceSansPro;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 26px;
-  letter-spacing: 1px;
-}
-.vfi-body-style.vfi-big {
-  font-size: 20px;
-  line-height: 34px;
+  src: url("../fonts/SourceSansPro/SourceSansPro-Regular.ttf");
 }

@@ -1,11 +1,14 @@
 @import "standards.styl"
 
-//
-// Body CSS
-//
 body
 	margin: 0
 	background-color: colorWarmLightGray
+	// default font
+	font-family: SourceSansPro
+	font-weight: bodyFont_weight
+	font-size: bodyFont_size
+	line-height: bodyFont_lineHeight
+	letter-spacing: bodyFont_letterSpacing
 
 	& a
 		color: colorRed
@@ -16,7 +19,6 @@ body
 
 	& button
 		padding: 10px 20px
-		border-radius: 6px
 		background-color: colorPrimaryDarkBlue
 		border: none
 		outline: none
@@ -31,9 +33,9 @@ body
 			-ms-filter: brightness(1.2)
 			cursor: pointer
 
-.vfi-main-view-wrapper
-	width: 80%
-	max-width: 800px
+.vfi-single-view
+	width: maxLayoutWidthPct
+	max-width: maxLayoutWidthPx
 	margin: megaSpacing auto
 	padding: largeSpacing
 	box-sizing: border-box
@@ -41,7 +43,7 @@ body
 	background-color: colorWhite
 
 	@media screen and (max-width: tabletWidth)
-		width: 80%
+		width: maxLayoutWidthPct
 		margin: largeSpacing auto
 		padding: mediumSpacing
 
@@ -50,40 +52,3 @@ body
 		border: none
 		margin: smallSpacing 0
 		padding: smallSpacing
-
-
-//
-// Header CSS
-//
-.vfi-header
-	width: 100%
-	height: megaSpacing
-	background-color: colorPrimaryBlue
-
-.vfi-header-content
-	width: 80%
-	height: 100%
-	margin: 0 auto
-	max-width: 800px
-
-.vfi-header-logo
-	float: left
-	height: 100%
-	line-height: megaSpacing !important
-	font-size: 40px
-	letter-spacing: 2px
-	color: colorWhite
-
-	&:hover
-		text-decoration: none
-
-.vfi-header-menu
-	position: relative
-	top: 10px
-	float: right
-	width: 40px
-	height: 40px
-	background-color: colorBlack
-
-	&:hover
-		cursor: pointer

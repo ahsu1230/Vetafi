@@ -10,9 +10,11 @@ var app = angular.module('vetafiApp', [
 /**
  * Configure routes
  */
-app.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider) {
     $routeProvider.when("/", {
         templateUrl: "templates/home.html"
+    }).when("/page-not-found", {
+        templateUrl: "templates/pageNotFound.html"
     }).when("/faq", {
         templateUrl: "templates/faq.html"
     }).when("/signup", {
@@ -21,12 +23,9 @@ app.config(function ($routeProvider, $locationProvider) {
         templateUrl: "templates/signin.html"
     }).when("/profile", {
         templateUrl: "templates/profile.html"
-    }).when("/page-not-found", {
-        templateUrl: "templates/pageNotFound.html"
+    }).when("/start-file-claim", {
+        templateUrl: "templates/startFileClaim.html"
     }).otherwise({
         redirectTo: '/'
     });
-
-    // use HTML5 History API (also removes '#' in url)
-    $locationProvider.html5Mode(true);
 });
