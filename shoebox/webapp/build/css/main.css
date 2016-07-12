@@ -74,9 +74,21 @@
 .vfi-banner-wrapper .vfi-banner-img {
   width: 100%;
   height: 300px;
+  background: #205493;
   background-image: url("../icons/banner-child.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 800px) {
+  .vfi-banner-wrapper .vfi-banner-img {
+    background-position: -200px 0px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .vfi-banner-wrapper .vfi-banner-img {
+    background-position: -320px 0px;
+  }
 }
 .vfi-banner-wrapper .vfi-banner-overlay {
   position: absolute;
@@ -86,10 +98,9 @@
   height: 70px;
   background-color: rgba(25,25,25,0.8);
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 640px) {
   .vfi-banner-wrapper .vfi-banner-overlay {
-    height: 140px;
-    font-size: 18px;
+    height: 120px;
   }
 }
 .vfi-banner-wrapper .vfi-banner-overlay .vfi-banner-text-wrapper {
@@ -103,6 +114,18 @@
   font-weight: 700;
   font-size: 26px;
   letter-spacing: 1.5px;
+  text-align: left;
+}
+@media screen and (max-width: 800px) {
+  .vfi-banner-wrapper .vfi-banner-overlay .vfi-banner-text-wrapper {
+    text-align: left;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .vfi-banner-wrapper .vfi-banner-overlay .vfi-banner-text-wrapper {
+    text-align: center;
+  }
 }
 .vfi-banner-wrapper .vfi-banner-overlay .vfi-banner-action {
   display: inline-block;
@@ -112,6 +135,13 @@
   transform: translateY(-50%);
   background-color: #fdb81e;
   color: #212121;
+}
+@media screen and (max-width: 640px) {
+  .vfi-banner-wrapper .vfi-banner-overlay .vfi-banner-action {
+    top: calc(50% + 10px);
+    right: 50%;
+    transform: translate(50%, 50%);
+  }
 }
 .vfi-banner-border {
   position: absolute;
@@ -225,14 +255,14 @@ body button:hover {
   border: 2px solid #494440;
   background-color: #fff;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: tabletWidth) {
   .vfi-single-view {
     width: 80%;
     margin: 30px auto;
     padding: 20px;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: mobileWidth) {
   .vfi-single-view {
     width: 100%;
     border: none;
@@ -376,45 +406,17 @@ body button:hover {
   font-family: SourceSansPro;
   src: url("../fonts/SourceSansPro/SourceSansPro-Regular.ttf");
 }
-.fb-icon {
-  width: 16px;
-  margin-right: 12px;
-  vertical-align: top;
-}
-.vfi-fb-btn {
-  background-color: #3b5998;
-}
-.vfi-signin-divisor {
-  height: 24px;
-  line-height: 24px;
-  margin: 30px 0px;
-  font-size: 18px;
-  color: #aeb0b5;
-}
-.vfi-border-div {
-  position: relative;
-  top: -4px;
-  display: inline-block;
-  width: calc(50% - 72px);
-  border-bottom: 1px solid #aeb0b5;
-}
-.vfi-border-div:first-child {
-  margin-right: 36px;
-}
-.vfi-border-div:last-child {
-  margin-left: 36px;
-}
 .vfi-signin-title {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: tabletWidth) {
   .vfi-signin-title {
     max-width: 200px;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: mobileWidth) {
   .vfi-signin-title {
     max-width: 200px;
   }
@@ -434,13 +436,13 @@ body button:hover {
   background-color: #0071bc;
   overflow: hidden;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: tabletWidth) {
   .vfi-signin-view .vfi-submit-btn,
   .vfi-login-view .vfi-submit-btn {
     width: 240px;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: mobileWidth) {
   .vfi-signin-view .vfi-submit-btn,
   .vfi-login-view .vfi-submit-btn {
     width: 240px;
@@ -481,13 +483,13 @@ body button:hover {
   box-shadow: 0px 0px 1px 1px #02bfe7;
   border: 1px solid #02bfe7;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: tabletWidth) {
   .vfi-signin-view input,
   .vfi-login-view input {
     width: 240px;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: mobileWidth) {
   .vfi-signin-view input,
   .vfi-login-view input {
     width: 240px;

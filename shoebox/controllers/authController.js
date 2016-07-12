@@ -7,8 +7,8 @@ var User = require('./../models/user');
 var UserService = require('./../services/userService');
 
 module.exports = function (app) {
-  app.get('/signin', function(req, res) {
-    // is there a session?
+  app.get('/signup', function(req, res) {
+    // is there a session? with provided email?
     // if yes, redirect to '/'
     // otherwise, redirect '/signin.html'
   });
@@ -66,25 +66,4 @@ module.exports = function (app) {
     });
   });
 
-
-  // =====================================
-  // FACEBOOK ROUTES =====================
-  // =====================================
-  // route for facebook authentication and login
-  app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
-
-  // handle the callback after facebook has authenticated the user
-  app.get('/auth/facebook/callback',
-    passport.authenticate('facebook', {
-      successRedirect : '/profile',
-      failureRedirect : '/'
-    })
-  );
-
-  app.post('/auth/facebook/disconnect', function(req, res) {
-    console.log('[socialUserDisconnect] request received for ' + JSON.stringify(req.body));
-    var extUserId = req.body.userId;
-    console.log('[socialUserDisconnect] User ' + extUserId + ' disconnected from facebook.');
-    res.sendStatus(200);
-  });
 };

@@ -6,20 +6,8 @@
   // If at '/signup'
   .vfi-signup-view(ng-if="atSignupPage")
     .vfi-signin-title
-      h3 Sign up with your Facebook account
-    button.vfi-fb-btn
-      img.fb-icon(src="../icons/fb_icon.svg")
-      | Sign In
-    .vfi-signin-divisor
-      .vfi-border-div
-      | Or
-      .vfi-border-div
-    .vfi-signin-title
       h3 Sign up with your email account
     .vfi-signin-form-wrapper
-      input(placeholder="First name", type="text")
-      input(placeholder="Middle name", type="text")
-      input(placeholder="Last name", type="text")
       input(placeholder="Email", type="text")
       input(placeholder="Password", type="password")
 
@@ -29,14 +17,6 @@
 
   // If at '/login'
   .vfi-login-view(ng-if="atLoginPage")
-    h3 Log in with your Facebook account
-    button.vfi-fb-btn
-      img.fb-icon(src="../icons/fb_icon.svg")
-      | Log In
-    .vfi-signin-divisor
-      .vfi-border-div
-      | Or
-      .vfi-border-div
     h3 Log in using your email
     .vfi-login-form-wrapper
       input.vfi-input-email(placeholder="Email", type="text")
