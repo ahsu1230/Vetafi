@@ -11,30 +11,36 @@ function postRequest(url, data, successFunc, failFunc) {
 
 $(document).ready(function(){
   $('.vfi-signup-view .vfi-submit-btn').click(function() {
+    var email = $('.vfi-input-email').val();
+    var password = $('.vfi-input-password').val();
+
     var url = "http://localhost:3999/auth/signup";
     var data = {};
-    postRequest(url, data, function(d) {
-        debugger;
-      }, function(e) {
-        debugger;
-        alert("Error logging in");
-      }
-    );
+    var success = function(resp) {
+      debugger;
+      window.location.replace(resp.redirect);
+    };
+    var error = function(resp) {
+      debugger;
+    };
+    postRequest(url, data, success, error);
   });
 
 
   $('.vfi-login-view .vfi-submit-btn').click(function() {
+    var email = $('.vfi-input-email').val();
+    var password = $('.vfi-input-password').val();
     var url = "http://localhost:3999/auth/login";
-    var data = {"email": "ahsu1230@gmail.com", "password": "qwerzxcvasdf"};
-    postRequest(url, data, function(d) {
-        debugger;
-      }, function(e) {
-        debugger;
-        alert("Error logging in");
-      }
-    );
+    var data = {"email": email, "password": password};
+    var success = function(resp) {
+      debugger;
+      window.location.replace(resp.redirect);
+    };
+    var error = function(resp) {
+      debugger;
+    };
+    postRequest(url, data, success, error);
   });
-
 
 });
 
