@@ -19,6 +19,24 @@ gulp.task('clean', function() {
 	return del.sync('build');
 });
 
+gulp.task('js', function() {
+  return gulp.src('src/js/*.js')
+    .pipe(concat('main.js'))
+    .pipe(gulpif(release, uglify())) // only minify if production (gulp --release)
+    .pipe(gulp.dest('build/js'))
+    .pipe(browserSync.reload({
+      stream:true
+    }));
+});
+gulp.task('copy-js', function() {
+	return gulp.src('src/js/copy/**/*.js')
+		.pipe(gulpif(release, uglify())) // only minify if production (gulp --release)
+		.pipe(gulp.dest('build/js'))
+		.pipe(browserSync.reload({
+      stream:true
+    }));
+});
+
 gulp.task('stylus', function() {
   return gulp.src('src/styles/*.styl')
     .pipe(stylus({
@@ -26,16 +44,6 @@ gulp.task('stylus', function() {
     }))
     .pipe(concat('main.css'))
     .pipe(gulp.dest('build/css'))
-    .pipe(browserSync.reload({
-      stream:true
-    }));
-});
-
-gulp.task('js', function() {
-  return gulp.src('src/js/*.js')
-    .pipe(concat('main.js'))
-    .pipe(gulpif(release, uglify())) // only minify if production (gulp --release)
-    .pipe(gulp.dest('build/js'))
     .pipe(browserSync.reload({
       stream:true
     }));
@@ -82,13 +90,13 @@ gulp.task('initBrowserSync', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('src/js/*.js', ['js']);
+  gulp.watch('src/js/**/*.js', ['js', 'copy-js']);
   gulp.watch('src/styles/*.styl', ['stylus']);
   gulp.watch('src/**/*.jade', ['jade']);
 });
 
 gulp.task('build', function() {
-	runSequence('clean', ['fonts', 'icons'], 'libs', 'js', 'jade', 'stylus');
+	runSequence('clean', ['fonts', 'icons'], 'libs', 'js', 'copy-js', 'stylus', 'jade');
 });
 
 gulp.task('default', function() {

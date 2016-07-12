@@ -8,17 +8,24 @@ var UserService = require('./../services/userService');
 
 module.exports = function (app) {
   app.get('/signup', function(req, res) {
-    // is there a session? with provided email?
-    // if yes, redirect to '/'
-    // otherwise, redirect '/signin.html'
+    console.log('[signup] request received for ' + JSON.stringify(req.body));
+    console.log('[signup] session for ' + JSON.stringify(req.session));
+    if (req.session.key) {
+      res.redirect('/');
+    } else {
+      res.sendFile('signup.html', {root: './webapp/build/templates'});
+    }
   });
 
   app.get('/login', function(req, res) {
-    // is there a session?
-    // if yes, redirect to '/'
-    // otherwise, redirect '/login.html'
+    console.log('[login] request received for ' + JSON.stringify(req.body));
+    console.log('[login] session for ' + JSON.stringify(req.session));
+    if (req.session.key) {
+      res.redirect('/');
+    } else {
+      res.sendFile('login.html', {root: './webapp/build/templates'});
+    }
   });
-
 
   app.post('/auth/signup', function(req, res) {
     console.log('[authSignUp] request received for ' + JSON.stringify(req.body));

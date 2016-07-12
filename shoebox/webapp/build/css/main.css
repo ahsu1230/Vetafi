@@ -406,29 +406,19 @@ body button:hover {
   font-family: SourceSansPro;
   src: url("../fonts/SourceSansPro/SourceSansPro-Regular.ttf");
 }
-.vfi-signin-title {
+.vfi-signup-title {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
 }
-@media screen and (max-width: tabletWidth) {
-  .vfi-signin-title {
-    max-width: 200px;
-  }
-}
-@media screen and (max-width: mobileWidth) {
-  .vfi-signin-title {
-    max-width: 200px;
-  }
-}
-.vfi-signin-title h3 {
+.vfi-signup-title h3 {
   line-height: 32px !important;
 }
-.vfi-signin-view,
+.vfi-signup-view,
 .vfi-login-view {
   text-align: center;
 }
-.vfi-signin-view .vfi-submit-btn,
+.vfi-signup-view .vfi-submit-btn,
 .vfi-login-view .vfi-submit-btn {
   position: relative;
   width: 360px;
@@ -436,19 +426,7 @@ body button:hover {
   background-color: #0071bc;
   overflow: hidden;
 }
-@media screen and (max-width: tabletWidth) {
-  .vfi-signin-view .vfi-submit-btn,
-  .vfi-login-view .vfi-submit-btn {
-    width: 240px;
-  }
-}
-@media screen and (max-width: mobileWidth) {
-  .vfi-signin-view .vfi-submit-btn,
-  .vfi-login-view .vfi-submit-btn {
-    width: 240px;
-  }
-}
-.vfi-signin-view .vfi-submit-btn .vfi-progress,
+.vfi-signup-view .vfi-submit-btn .vfi-progress,
 .vfi-login-view .vfi-submit-btn .vfi-progress {
   position: absolute;
   top: 0px;
@@ -457,14 +435,14 @@ body button:hover {
   height: 100%;
   background-color: #205493;
 }
-.vfi-signin-view .vfi-submit-btn .vfi-txt,
+.vfi-signup-view .vfi-submit-btn .vfi-txt,
 .vfi-login-view .vfi-submit-btn .vfi-txt {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.vfi-signin-view input,
+.vfi-signup-view input,
 .vfi-login-view input {
   display: block;
   height: 36px;
@@ -476,24 +454,12 @@ body button:hover {
   border-radius: 6px;
   outline: none;
 }
-.vfi-signin-view input:active,
+.vfi-signup-view input:active,
 .vfi-login-view input:active,
-.vfi-signin-view input:focus,
+.vfi-signup-view input:focus,
 .vfi-login-view input:focus {
   box-shadow: 0px 0px 1px 1px #02bfe7;
   border: 1px solid #02bfe7;
-}
-@media screen and (max-width: tabletWidth) {
-  .vfi-signin-view input,
-  .vfi-login-view input {
-    width: 240px;
-  }
-}
-@media screen and (max-width: mobileWidth) {
-  .vfi-signin-view input,
-  .vfi-login-view input {
-    width: 240px;
-  }
 }
 
 @font-face {

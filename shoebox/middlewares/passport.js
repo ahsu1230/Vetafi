@@ -36,14 +36,14 @@ module.exports = function (app) {
             }
 
             if (!user) {
-              return next(null, false, 'user not found');
+              return next(null, false, 'user_not_found');
             }
 
             console.log('User found ' + user.email);
             if (AuthService.isPasswordCorrect(user.password, password)) {
               return next(null, user);
             } else {
-              return next(null, false, 'passwords do not match');
+              return next(null, false, 'password_mismatch');
             }
         });
     }
