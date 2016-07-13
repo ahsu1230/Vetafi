@@ -1,4 +1,5 @@
 winterfell/node_modules
 winterfell/npm-debug.log
 winterfell/webapp/node_modules
+winterfell/webapp/build
 winterfell/dump.rdb
