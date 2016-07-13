@@ -31,10 +31,20 @@ app.controller('faqCtrl', ['$scope', function($scope) {
 
 'use strict';
 var app = angular.module('vetafiApp');
-app.controller("headerCtrl", ['$scope', 'profileService',
-	function ($scope, profileService) {
+app.controller("headerCtrl", ['$scope', 'profileService', 'net',
+	function ($scope, profileService, net) {
 		$scope.isLoggedIn = false;
 
+		if (sessionStorageHelper.getPair(vfiConstants.keyUserId)) {
+			net.getUserInfo().then(function(resp) {
+				var user = resp.data.user;
+				profileService.userInfo = user;
+			});
+		}
+
+		//
+		// Watchers
+		//
 		$scope.$watch(function () {
 			return profileService.userInfo;
 		}, function (newVal) {
@@ -109,13 +119,17 @@ app.factory('net', ['$http', function($http) {
     },
     signup: function(userData) {
       return post("/auth/signup", userData);
+    },
+    getUserInfo: function() {
+      var userId = sessionStorageHelper.getPair(vfiConstants.keyUserId);
+      return get("/user/" + userId);
     }
   };
 }]);
 
 var app = angular.module('vetafiApp');
-app.controller('profileCtrl', ['$scope', 'profileService', 'net', 'modalService',
-  function($scope, profileService, net, modalService) {
+app.controller('profileCtrl', ['$scope', '$location', 'profileService', 'net', 'modalService',
+  function($scope, $location, profileService, net, modalService) {
     $scope.userInfo = {};
     $scope.claims = [];
 
@@ -127,7 +141,11 @@ app.controller('profileCtrl', ['$scope', 'profileService', 'net', 'modalService'
     $scope.clickLogout = function() {
       console.log('logging out!');
       net.logout().then(function(resp) {
-        debugger;
+        sessionStorageHelper.removePair(vfiConstants.keyUserId);
+        profileService.userInfo = {};
+        if (resp.status == 200) {
+          $location.path('/');
+        }
       });
     };
 

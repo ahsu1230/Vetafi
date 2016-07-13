@@ -33,6 +33,10 @@ app.factory('net', ['$http', function($http) {
     },
     signup: function(userData) {
       return post("/auth/signup", userData);
+    },
+    getUserInfo: function() {
+      var userId = sessionStorageHelper.getPair(vfiConstants.keyUserId);
+      return get("/user/" + userId);
     }
   };
 }]);

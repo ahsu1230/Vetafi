@@ -1,4 +1,6 @@
 var lodash = require('lodash');
+var mongoose = require('mongoose');
+var User = require('../models/user');
 var UserService = require('./../services/userService');
 
 /*
@@ -8,13 +10,25 @@ var UserService = require('./../services/userService');
 */
 module.exports = function (app) {
 
-  app.get('/user', function (req, res) {
-    console.log('[getUser] request received ');
+  app.post('/user/:extUserId/modify', function (req, res) {
+    console.log('[modifyUser] request received for ' + JSON.stringify(req.body));
     res.sendStatus(200);
   });
 
-  app.get('/user/modify', function (req, res) {
-    console.log('[userModify] request received for ' + JSON.stringify(req.body));
+  app.delete('/user/:extUserId', function (req, res) {
+    
     res.sendStatus(200);
   });
+
+  app.get('/user/:extUserId', function (req, res) {
+    console.log('[getUser] request received for ' + req.params.extUserId);
+    User.getByExtId(req.params.extUserId, function(err, user) {
+      if (user) {
+        res.status(200).send({user: User.externalize(user)});
+      } else {
+        res.sendStatus(404);
+      }
+    });
+  });
+
 };

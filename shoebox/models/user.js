@@ -1,5 +1,6 @@
 'use strict';
 var uuid = require('uuid');
+var lodash = require('lodash');
 var mongoose = require('mongoose');
 var SocialUser = require('./socialUser');
 var Schema = mongoose.Schema;
@@ -9,6 +10,7 @@ var userSchema = new Schema({
   middlename: String,                               // Middle name
   lastname: String,                                 // Last name
   email: String,                                    // Email address
+  externalId: String,                               // External User Id
   password: String,                                 // Encrypted password
   createdAt: Date,       // Date of row creation
   updatedAt: Date,       // Date of last row modification
@@ -27,18 +29,20 @@ var State = {
   INACTIVE: 1
 };
 
+// Get methods
+userSchema.statics.getByExtId = function(extId, callback) {
+  return this.model('User').findOne({externalId: extId}, callback);
+}
+
 var User = mongoose.model('User', userSchema);
 module.exports = User;
 module.exports.State = State;
 
-// Serializer / Deserializer
+//
+// Serialize
+//
 module.exports.externalize = function(user) {
-  return {
-    firstname: user.firstname,
-    middlename: user.middlename,
-    lastname: user.lastname,
-    email: user.email
-  };
+  return lodash.pick(user, ['firstname', 'middlename', 'lastname', 'email', 'externalId']);
 };
 
 //
@@ -52,6 +56,7 @@ module.exports.quickCreate = function(user, callbacks) {
     lastname: user.lastname,
     email: user.email,
     password: user.password,
+    externalId: uuid.v4(),
     createdAt: now,
     updatedAt: now,
     state: User.State.ACTIVE,

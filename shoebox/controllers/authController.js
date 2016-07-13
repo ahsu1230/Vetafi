@@ -1,5 +1,6 @@
 var lodash = require('lodash');
 var passport = require('passport');
+var User = require('./../models/user');
 var UserService = require('./../services/userService');
 
 module.exports = function (app) {
@@ -51,8 +52,8 @@ module.exports = function (app) {
     console.log('[authLogIn] request received for ' + JSON.stringify(req.body));
     if (req.user) {
       req.session.key = req.body.email;
-      var extUser = User.externalize(req.user);
-      res.status(200).send({user: extUser, redirect: '/'});
+      var extUserId = req.user.externalId;
+      res.status(200).send({userId: extUserId, redirect: '/'});
     } else {
       res.status(403);
     }

@@ -1,6 +1,6 @@
 var app = angular.module('vetafiApp');
-app.controller('profileCtrl', ['$scope', 'profileService', 'net', 'modalService',
-  function($scope, profileService, net, modalService) {
+app.controller('profileCtrl', ['$scope', '$location', 'profileService', 'net', 'modalService',
+  function($scope, $location, profileService, net, modalService) {
     $scope.userInfo = {};
     $scope.claims = [];
 
@@ -12,12 +12,18 @@ app.controller('profileCtrl', ['$scope', 'profileService', 'net', 'modalService'
     $scope.clickLogout = function() {
       console.log('logging out!');
       net.logout().then(function(resp) {
-        debugger;
+        sessionStorageHelper.removePair(vfiConstants.keyUserId);
+        profileService.userInfo = {};
+        if (resp.status == 200) {
+          $location.path('/');
+        }
       });
     };
 
     $scope.clickDeleteAccount = function() {
       console.log('delete account!!');
+      sessionStorageHelper.removePair(vfiConstants.keyUserId);
+      profileService.userInfo = {};
       debugger;
     };
   }

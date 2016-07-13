@@ -4237,3 +4237,19 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
     root._ = lodash;
   }
 }.call(this));
+
+var vfiConstants = {
+    keyUserId: 'vfi-user-id'
+};
+
+var sessionStorageHelper = {
+  getPair: function(key) {
+    return JSON.parse(sessionStorage.getItem(key));
+  },
+  setPair: function(key, value) {
+    sessionStorage.setItem(key, JSON.stringify(value));
+  },
+  removePair: function(key) {
+    sessionStorage.removeItem(key);
+  }
+};
