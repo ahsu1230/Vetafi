@@ -18,7 +18,9 @@ $(document).ready(function(){
     var data = {};
     var success = function(resp) {
       debugger;
-      window.location.replace(resp.redirect);
+      if (resp.redirect) {
+        window.location.replace(resp.redirect);
+      }
     };
     var error = function(resp) {
       debugger;
@@ -34,7 +36,9 @@ $(document).ready(function(){
     var data = {"email": email, "password": password};
     var success = function(resp) {
       debugger;
-      window.location.replace(resp.redirect);
+      if (resp.redirect) {
+        window.location.replace(resp.redirect);
+      }
     };
     var error = function(resp) {
       debugger;

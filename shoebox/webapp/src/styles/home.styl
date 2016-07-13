@@ -44,7 +44,7 @@
 
       @media screen and (max-width: maxWindowWidthPx)
         text-align: left
-        font-size: (heading1_small_size - 2)
+        font-size: (heading1_small_size - 5)
       @media screen and (max-width: minWindowWidthPx)
         text-align: center
 
@@ -76,10 +76,13 @@
     text-decoration: none
     cursor: pointer
 
+  @media screen and (max-width: minWindowWidthPx)
+    color: colorPrimaryDarkBlue
+
 .vfi-home-option-wrapper
   width: maxLayoutWidthPct
   max-width: maxLayoutWidthPx
-  margin: megaSpacing auto 0px
+  margin: megaSpacing auto 0
   box-sizing: border-box
   background-color: colorPrimaryDarkBlue
 
@@ -93,6 +96,15 @@
       opacity: 1.0
       visibility: visible
       transform: translateY(0px)
+
+  @media screen and (max-width: minWindowWidthPx)
+    width: 90%
+    margin-top: smallSpacing
+    background-color: colorWhite
+    border: 2px solid transparent
+
+    &:hover
+      border: 2px solid colorPrimaryDarkBlue
 
   & a
     display: block
@@ -109,6 +121,9 @@
     display: inline-block
     width: calc(100% - 200px)
 
+    @media screen and (max-width: maxWindowWidthPx)
+      width: 100%
+
   & img
     float: right
     width: 80px
@@ -117,6 +132,9 @@
     visibility: hidden
     transform: translateY(20px)
     transition: all 0.1s linear
+
+    @media screen and (max-width: maxWindowWidthPx)
+      display: none
 
 .vfi-home-footer-wrapper
   width: 100%

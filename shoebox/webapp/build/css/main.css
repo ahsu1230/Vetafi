@@ -17,18 +17,32 @@
   height: 100%;
   margin: 0 auto;
 }
-.vfi-header-logo {
+.vfi-header-logo-wrapper {
   float: left;
   height: 100%;
   line-height: 60px;
+}
+.vfi-header-logo-wrapper img {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 0.5em;
+}
+.vfi-header-logo-wrapper .vfi-header-logo {
+  display: inline-block;
   color: #fff;
   font-family: Merriweather;
   font-size: 40px;
   font-weight: 700;
   letter-spacing: 2px;
 }
-.vfi-header-logo:hover {
+.vfi-header-logo-wrapper .vfi-header-logo:hover {
   text-decoration: none;
+}
+@media screen and (max-width: 640px) {
+  .vfi-header-logo-wrapper .vfi-header-logo {
+    display: none;
+  }
 }
 .vfi-header-links {
   line-height: 60px;
@@ -36,9 +50,10 @@
 .vfi-header-links a {
   position: relative;
   float: right;
-  margin-left: 30px;
+  margin-left: 2em;
   color: #fff;
   font-family: Merriweather;
+  font-size: 20px;
 }
 .vfi-header-links a:hover {
   text-decoration: none;
@@ -47,6 +62,11 @@
 .vfi-header-links a:hover .vfi-underline-border {
   opacity: 1;
   visibility: visible;
+}
+@media screen and (max-width: 640px) {
+  .vfi-header-links a {
+    font-size: 15px;
+  }
 }
 .vfi-underline-border {
   position: absolute;
@@ -119,7 +139,7 @@
 @media screen and (max-width: 800px) {
   .vfi-banner-wrapper .vfi-banner-overlay .vfi-banner-text-wrapper {
     text-align: left;
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 @media screen and (max-width: 640px) {
@@ -157,10 +177,15 @@
   text-decoration: none;
   cursor: pointer;
 }
+@media screen and (max-width: 640px) {
+  .vfi-home-option-link {
+    color: #205493;
+  }
+}
 .vfi-home-option-wrapper {
   width: 80%;
   max-width: 720px;
-  margin: 60px auto 0px;
+  margin: 4em auto 0;
   box-sizing: border-box;
   background-color: #205493;
 }
@@ -175,20 +200,36 @@
   visibility: visible;
   transform: translateY(0px);
 }
+@media screen and (max-width: 640px) {
+  .vfi-home-option-wrapper {
+    width: 90%;
+    margin-top: 1em;
+    background-color: #fff;
+    border: 2px solid transparent;
+  }
+  .vfi-home-option-wrapper:hover {
+    border: 2px solid #205493;
+  }
+}
 .vfi-home-option-wrapper a {
   display: block;
-  padding: 30px 60px;
+  padding: 2em 4em;
 }
 .vfi-home-option-wrapper .vfi-option-title {
   font-family: Merriweather;
   font-weight: 700;
   font-size: 20px;
-  line-height: 26px;
+  line-height: 1.3em;
   letter-spacing: 1px;
 }
 .vfi-home-option-wrapper .vfi-option-text-wrapper {
   display: inline-block;
   width: calc(100% - 200px);
+}
+@media screen and (max-width: 800px) {
+  .vfi-home-option-wrapper .vfi-option-text-wrapper {
+    width: 100%;
+  }
 }
 .vfi-home-option-wrapper img {
   float: right;
@@ -199,10 +240,15 @@
   transform: translateY(20px);
   transition: all 0.1s linear;
 }
+@media screen and (max-width: 800px) {
+  .vfi-home-option-wrapper img {
+    display: none;
+  }
+}
 .vfi-home-footer-wrapper {
   width: 100%;
   height: 200px;
-  margin-top: 120px;
+  margin-top: 8em;
   background-color: #323a45;
 }
 
@@ -220,7 +266,7 @@ body {
   font-family: SourceSansPro;
   font-weight: 400;
   font-size: 17px;
-  line-height: 26px;
+  line-height: 1.5em;
   letter-spacing: 1px;
 }
 body a {
@@ -249,8 +295,8 @@ body button:hover {
 .vfi-single-view {
   width: 80%;
   max-width: 720px;
-  margin: 60px auto;
-  padding: 30px;
+  margin: 4em auto;
+  padding: 2em;
   box-sizing: border-box;
   border: 2px solid #494440;
   background-color: #fff;
@@ -258,16 +304,16 @@ body button:hover {
 @media screen and (max-width: tabletWidth) {
   .vfi-single-view {
     width: 80%;
-    margin: 30px auto;
-    padding: 20px;
+    margin: 2em auto;
+    padding: 1.5em;
   }
 }
 @media screen and (max-width: mobileWidth) {
   .vfi-single-view {
     width: 100%;
     border: none;
-    margin: 15px 0;
-    padding: 15px;
+    margin: 1em 0;
+    padding: 1em;
   }
 }
 
@@ -295,7 +341,7 @@ body button:hover {
 }
 .vfi-profile-column.vfi-pic {
   width: 240px;
-  margin-right: 60px;
+  margin-right: 4em;
 }
 .vfi-profile-column.vfi-info {
   width: calc(100% - 300px);
@@ -324,7 +370,7 @@ body button:hover {
   display: inline-block;
   width: 24px;
   height: 24px;
-  margin-right: 15px;
+  margin-right: 1em;
   vertical-align: middle;
   background: url("../icons/camera.svg");
 }
@@ -336,7 +382,7 @@ body button:hover {
   border: 2px solid #494440;
 }
 .vfi-profile-pic.vfi-default {
-  padding: 20px;
+  padding: 1.5em;
 }
 .vfi-name {
   text-align: center;
@@ -357,8 +403,8 @@ body button:hover {
 }
 .vfi-profile-section {
   width: 100%;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 4em;
+  padding-bottom: 4em;
   border-top: 1px solid #e4e2e0;
 }
 .vfi-profile-section.claims {
@@ -369,24 +415,24 @@ body button:hover {
 }
 .vfi-profile-section .vfi-section-header {
   display: inline-block;
-  margin-bottom: 30px;
+  margin-bottom: 2em;
   font-family: Merriweather;
   font-size: 20px;
-  line-height: 26px;
+  line-height: 1.3em;
   letter-spacing: 1.5px;
 }
 .vfi-profile-section .vfi-section-content {
   display: block;
 }
 .vfi-profile-section .vfi-section-content .vfi-content {
-  margin-bottom: 20px;
+  margin-bottom: 1.5em;
 }
 .vfi-profile-section .vfi-section-content .vfi-content:last-child {
   margin-bottom: 0;
 }
 .vfi-profile-section.options .vfi-section-content {
-  height: 60px;
-  margin: 20px 0;
+  height: 4em;
+  margin: 1.5em 0;
 }
 .vfi-profile-section.options .vfi-option-btn {
   float: right;

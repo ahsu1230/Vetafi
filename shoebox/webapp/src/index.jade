@@ -11,7 +11,9 @@ html(lang="en")
 	body(ng-app="vetafiApp").vfi-body-style
 		.vfi-header
 			.vfi-header-content(ng-controller="headerCtrl")
-				a.vfi-header-logo(href="/") Vetafi
+				a.vfi-header-logo-wrapper(href="/")
+					img.vfi-header-logo-img(src='../icons/logo.png')
+					.vfi-header-logo Vetafi
 				.vfi-header-links
 					a(href='#/signup' ng-if='!isLoggedIn')
 						| Sign Up

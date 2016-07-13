@@ -11,18 +11,30 @@
   height: 100%
   margin: 0 auto
 
-.vfi-header-logo
+.vfi-header-logo-wrapper
   float: left
   height: 100%
   line-height: headerHeightPx
-  color: colorWhite
-  font-family: Merriweather
-  font-size: heading1_big_size
-  font-weight: heading1_weight
-  letter-spacing: heading1_big_letterSpacing
 
-  &:hover
-    text-decoration: none
+  & img
+    display: inline-block
+    width: 32px
+    height: 32px
+    margin-right: miniSpacing
+
+  & .vfi-header-logo
+    display: inline-block
+    color: colorWhite
+    font-family: Merriweather
+    font-size: heading1_big_size
+    font-weight: heading1_weight
+    letter-spacing: heading1_big_letterSpacing
+
+    &:hover
+      text-decoration: none
+
+    @media screen and (max-width: minWindowWidthPx)
+      display: none
 
 .vfi-header-links
   line-height: headerHeightPx
@@ -33,6 +45,7 @@
     margin-left: largeSpacing
     color: colorWhite
     font-family: Merriweather
+    font-size: heading1_small_size
 
     &:hover
       text-decoration: none
@@ -41,6 +54,9 @@
       & .vfi-underline-border
         opacity: 1.0
         visibility: visible
+
+    @media screen and (max-width: minWindowWidthPx)
+      font-size: heading1_mini_size
 
 .vfi-underline-border
   position: absolute

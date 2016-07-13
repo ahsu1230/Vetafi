@@ -8,10 +8,6 @@ function UserService (app) {
     this.app = app;
 };
 
-function validateNames(firstname, lastname) {
-  return firstname.length > 0 && lastname.length > 0;
-}
-
 function validateEmail(email) {
   // emailvalidator requires redis and sends a ping to the email to check its validity.
   //return validator.checkEmailAddress(email);
@@ -24,18 +20,11 @@ function validatePassword(password) {
 
 module.exports = UserService;
 module.exports.createNewUser = function(user, callbacks) {
-  var firstname = lodash.trim(user.firstname) || '';
-  var middlename = lodash.trim(user.middlename) || null;
-  var lastname = lodash.trim(user.lastname) || '';
   var email = lodash.trim(user.email);
   var password = user.password;
 
   var errorCode = 0;
   var errorMsg = null;
-  if (!validateNames(firstname, lastname)) {
-    errorCode = 400;
-    errorMsg = "Names are not valid";
-  }
   if (!validateEmail(email)) {
     errorCode = 400;
     errorMsg = "Email is not valid";
@@ -47,9 +36,9 @@ module.exports.createNewUser = function(user, callbacks) {
 
   if (errorCode == 0) {
     var newUser = {
-      firstname: firstname,
-      middlename: middlename,
-      lastname: lastname,
+      firstname: null,
+      middlename: null,
+      lastname: null,
       email: email,
       password: password,
       admin: false,

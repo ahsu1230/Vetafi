@@ -1,12 +1,10 @@
 var lodash = require('lodash');
-var redis   = require('redis');
-var session = require('express-session');
-var redisStore = require('connect-redis')(session);
 var passport = require('passport');
-var User = require('./../models/user');
 var UserService = require('./../services/userService');
 
 module.exports = function (app) {
+
+  // Endpoint for routing sign-up
   app.get('/signup', function(req, res) {
     console.log('[signup] request received for ' + JSON.stringify(req.body));
     console.log('[signup] session for ' + JSON.stringify(req.session));
@@ -17,6 +15,7 @@ module.exports = function (app) {
     }
   });
 
+  // Endpoint for routing login
   app.get('/login', function(req, res) {
     console.log('[login] request received for ' + JSON.stringify(req.body));
     console.log('[login] session for ' + JSON.stringify(req.session));
@@ -27,19 +26,16 @@ module.exports = function (app) {
     }
   });
 
+  // Endpoint to authenticate sign-ups and begin session
   app.post('/auth/signup', function(req, res) {
     console.log('[authSignUp] request received for ' + JSON.stringify(req.body));
     var user = {
-      firstname: req.body.firstname,
-      middlename: req.body.middlename,
-      lastname: req.body.lastname,
       email: req.body.email,
       password: req.body.password
     };
     var callbacks = {
       onError: function(errorCode, errorMsg) {
-        console.log('[authSignUp] ' + errorCode +
-          ' Error creating user: ' + errorMsg);
+        console.log('[authSignUp] ' + errorCode + ' Error creating user: ' + errorMsg);
         res.sendStatus(errorCode, errorMsg);
       },
       onSuccess: function(user) {
@@ -50,6 +46,7 @@ module.exports = function (app) {
     UserService.createNewUser(user, callbacks);
   });
 
+  // Endpoint to authenticate logins and begin session
   app.post('/auth/login', passport.authenticate('local'), function(req, res) {
     console.log('[authLogIn] request received for ' + JSON.stringify(req.body));
     if (req.user) {
@@ -61,6 +58,7 @@ module.exports = function (app) {
     }
   });
 
+  // Endpoint to logout and remove session
   app.get('/auth/logout', function(req, res) {
     console.log('[authLogOut] log out for ' + JSON.stringify(req.session));
     req.session.destroy(function (err) {
