@@ -13,7 +13,7 @@
           .vfi-name Suffix (Jr. Sr. III)
 
       .vfi-profile-column.vfi-info
-        button.vfi-edit-btn
+        button.vfi-edit-btn(ng-click="clickEdit()")
           .vfi-edit-icon
           | Edit
         .vfi-section-header.vfi-info My Information
@@ -40,7 +40,7 @@
       .vfi-section-header Options
       .vfi-section-content
         | Log out of your account
-        button.vfi-option-btn.logout Log out
+        button.vfi-option-btn.logout(ng-click="clickLogout()") Log out
       .vfi-section-content
         | Delete your account and remove all your content
-        button.vfi-option-btn.delete-account Delete Account
+        button.vfi-option-btn.delete-account(ng-click="clickDeleteAccount()") Delete Account

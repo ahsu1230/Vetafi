@@ -15,10 +15,10 @@ html(lang="en")
 					img.vfi-header-logo-img(src='../icons/logo.png')
 					.vfi-header-logo Vetafi
 				.vfi-header-links
-					a(href='#/signup' ng-if='!isLoggedIn')
+					a(href='/signup' ng-if='!isLoggedIn')
 						| Sign Up
 						.vfi-underline-border
-					a(href='#/login' ng-if='!isLoggedIn')
+					a(href='/login' ng-if='!isLoggedIn')
 						| Log In
 						.vfi-underline-border
 					a(href='#/profile' ng-if='isLoggedIn')

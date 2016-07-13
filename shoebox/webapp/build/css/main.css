@@ -341,10 +341,11 @@ body button:hover {
 }
 .vfi-profile-column.vfi-pic {
   width: 240px;
-  margin-right: 4em;
+  margin-right: 2em;
 }
 .vfi-profile-column.vfi-info {
   width: calc(100% - 300px);
+  text-align: left;
 }
 .vfi-profile-pic-wrapper {
   position: relative;

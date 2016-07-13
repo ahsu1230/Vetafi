@@ -66,6 +66,16 @@ app.controller('homeCtrl', ['$scope', 'profileService',
 
 'use strict';
 var app = angular.module('vetafiApp');
+app.factory('modalService', function() {
+  return {
+    activateModal: function(path, scopeData) {
+      debugger;
+    }
+  }
+});
+
+'use strict';
+var app = angular.module('vetafiApp');
 app.factory('net', ['$http', function($http) {
   var baseUrl = "http://localhost:3999";
 
@@ -104,10 +114,27 @@ app.factory('net', ['$http', function($http) {
 }]);
 
 var app = angular.module('vetafiApp');
-app.controller('profileCtrl', ['$scope', 'profileService',
-  function($scope, profileService) {
+app.controller('profileCtrl', ['$scope', 'profileService', 'net', 'modalService',
+  function($scope, profileService, net, modalService) {
     $scope.userInfo = {};
     $scope.claims = [];
+
+    $scope.clickEdit = function() {
+      debugger;
+      modalService.activateModal();
+    };
+
+    $scope.clickLogout = function() {
+      console.log('logging out!');
+      net.logout().then(function(resp) {
+        debugger;
+      });
+    };
+
+    $scope.clickDeleteAccount = function() {
+      console.log('delete account!!');
+      debugger;
+    };
   }
 ]);
 
