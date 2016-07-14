@@ -1,126 +1,168 @@
 @import "standards.styl"
 
 .vfi-profile-view
-  background-color: white
+  background-color: colorWarmLightGray
 
-.vfi-profile-container
+//
+// Profile Banner section
+//
+.vfi-profile-banner
+  position: relative
+  width: 100%
+  height: (5 * megaSpacing)
+  margin-bottom: largeSpacing
+  background: url('../icons/america-flag-bg.jpg')
+  background-size: cover
+  border-bottom: 2px solid colorWarmDarkGray
+
+.vfi-profile-banner-overlay
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(0, 0, 0, 0.5)
+
+.vfi-profile-header-wrapper
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
   width: maxLayoutWidthPct
   max-width: maxLayoutWidthPx
   margin: 0 auto
 
-//
-// Profile My Information section
-//
-.vfi-profile-column
-  display: inline-block
-  position: relative
-  box-sizing: border-box
-  vertical-align: top
-
-  &.vfi-pic
-    width: 240px
-    margin-right: largeSpacing
-
-  &.vfi-info
-    width: calc(100% - 300px)
-    text-align: left
-
 .vfi-profile-pic-wrapper
   position: relative
+  display: inline-block
+  vertical-align: top
+  margin-right: largeSpacing
 
-  &:hover
-    & .vfi-change-pic-btn
-      height: 40px
-
-  & .vfi-change-pic-btn
-    position: absolute
-    top: 0px
-    left: 0px
-    height: 0px
-    width: 100%
-    padding: 0px 8px
-    box-sizing: border-box
-    background-color: rgba(55, 55, 55, 0.8)
-    color: colorWhite
-    transition: height 0.1s linear
+  &:hover .vfi-change-picture-overlay
+    height: 3em
     cursor: pointer
-    overflow: hidden
 
-    & .vfi-camera-icon
-      display: inline-block
-      width: 24px
-      height: 24px
-      margin-right: smallSpacing
-      vertical-align: middle
-      background: url('../icons/camera.svg');
+.vfi-change-picture-overlay
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 0
+  padding: 0 8px
+  box-sizing: border-box
+  overflow: hidden
+  background-color: rgba(0, 0, 0, 0.7)
+  color: colorWhite
+  transition: height 0.1s linear
+
+  & img
+    margin-right: smallSpacing
+    vertical-align: middle
 
 .vfi-profile-pic
-  width: 100%
-  height: 300px
-  box-sizing: border-box
+  height: (3 * megaSpacing)
+  margin-bottom: -0.5em
   background-color: colorWarmLightGray
   border: 2px solid colorWarmDarkGray
 
   &.vfi-default
     padding: mediumSpacing
 
-.vfi-name
-  text-align: center
+.vfi-profile-basic-info
+  display: inline-block
+  color: colorWhite
+  font-weight: 400
+  font-size: heading1_smaller_size
+  line-height: heading1_smaller_lineHeight
 
-.vfi-edit-btn
-    position: absolute
-    top: 0px
-    right: 0px
+  & .vfi-line:first-child
+    font-size: heading1_small_size
+    line-height: heading1_small_lineHeight
+    margin-bottom: mediumSpacing
 
-    & .vfi-edit-icon
-      display: inline-block
-      width: 18px
-      height: 18px
-      margin-right: 8px
-      vertical-align: middle
-      background: url('../icons/edit-white.svg')
-      background-size: cover
+.vfi-edit-info-btn
+  position: absolute
+  bottom: 0
+  background-color: colorYellow
+  color: colorBlack
+
+//
+//  Profile Body Section
+//
+.vfi-profile-container
+  width: maxLayoutWidthPct
+  max-width: maxLayoutWidthPx
+  margin: 0 auto
 
 .vfi-profile-section
   width: 100%
-  padding-top: megaSpacing
-  padding-bottom: megaSpacing
-  border-top: 1px solid colorWarmLightGray
-
-  &.claims
-    text-align: left
-  &.options
-    text-align: left
+  margin-bottom: mediumSpacing
+  padding: largeSpacing megaSpacing
+  box-sizing: border-box
+  background-color: colorWhite
+  border: 2px solid colorWarmDarkGray
 
   & .vfi-section-header
-    display: inline-block
-    margin-bottom: largeSpacing
     font-family: Merriweather
     font-size: heading1_small_size
     line-height: heading1_small_lineHeight
     letter-spacing: heading1_letterSpacing
 
+//
+// Profile Military section
+//
+.vfi-profile-section.military-info
+  & .vfi-section-header
+    margin-bottom: mediumSpacing
+
   & .vfi-section-content
-    display: block
+    position: relative
+    margin-bottom: largeSpacing
 
-    & .vfi-content
-      margin-bottom: mediumSpacing
+    &.military-bg
+      height: (2 * megaSpacing)
 
-      &:last-child
-        margin-bottom: 0
+    &.add-military
+      margin-bottom: 0
 
+      & button
+        background-color: colorYellow
+        color: colorBlack
+
+  & .vfi-section-divider
+    margin: mediumSpacing 0
+    border-bottom: 1px solid colorWarmLightGray
+
+  & .vfi-insignia
+    position: absolute
+    top: 0
+    right: 0
+    width: (2 * megaSpacing)
+    height: (2 * megaSpacing)
+
+  & .vfi-add-sign
+    display: inline-block
+    width: largeSpacing
+    height: largeSpacing
+    margin-right: smallSpacing
+    vertical-align: middle
 
 //
-// Profile File Claims section
+// Profile Military section
 //
+.vfi-profile-section.claims
+  & .vfi-section-header
+    margin-bottom: mediumSpacing
 
 //
 // Profile Options section
 //
 .vfi-profile-section.options
+  & .vfi-section-header
+    margin-bottom: mediumSpacing
+
   & .vfi-section-content
     height: megaSpacing
-    margin: mediumSpacing 0
 
   & .vfi-option-btn
     float: right

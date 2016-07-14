@@ -30,4 +30,4 @@ require('./config/mongoose')(environment);
 
 var port = 3999;
 app.listen(process.env.PORT || port);
-console.log("Listening on port " + port);
+console.log("Listening on port " + port + ". Winter is coming!");
