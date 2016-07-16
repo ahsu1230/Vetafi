@@ -24,17 +24,13 @@ gulp.task('js', function() {
     .pipe(concat('main.js'))
     .pipe(gulpif(release, uglify())) // only minify if production (gulp --release)
     .pipe(gulp.dest('build/js'))
-    .pipe(browserSync.reload({
-      stream:true
-    }));
+    .pipe(browserSync.stream());
 });
 gulp.task('other-js', function() {
 	return gulp.src('src/js/other/**/*.js')
 		.pipe(gulpif(release, uglify())) // only minify if production (gulp --release)
 		.pipe(gulp.dest('build/js'))
-		.pipe(browserSync.reload({
-      stream:true
-    }));
+		.pipe(browserSync.stream());
 });
 
 gulp.task('stylus', function() {
@@ -44,18 +40,14 @@ gulp.task('stylus', function() {
     }))
     .pipe(concat('main.css'))
     .pipe(gulp.dest('build/css'))
-    .pipe(browserSync.reload({
-      stream:true
-    }));
+    .pipe(browserSync.stream());
 });
 
 gulp.task('jade', function() {
   return gulp.src('src/**/*.jade')
     .pipe(jade())
     .pipe(gulp.dest('build'))
-    .pipe(browserSync.reload({
-      stream:true
-    }));
+    .pipe(browserSync.stream());
 });
 
 gulp.task('libs', function() {
@@ -100,5 +92,5 @@ gulp.task('build', function() {
 });
 
 gulp.task('default', function() {
-    runSequence('clean', 'build', 'initBrowserSync', 'watch');
+  runSequence('build', 'initBrowserSync', 'watch');
 });
